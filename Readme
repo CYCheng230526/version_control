@@ -1,1 +1,88 @@
-test 123
+1.Git包含在默認的Ubuntu存儲庫中。 因此，用戶將能夠從apt軟件包管理器中非常容易地安裝它。 這是在Ubuntu上安裝Git的最便捷的方法。
+sudo apt update && sudo apt install git
+
+2.檢查已安裝的git版本 	
+git --version
+
+3.安裝後要做的第一件事是 配置我們的用戶名和電子郵件地址。 Git將您的身份與您所做的每次提交相關聯。 (github帳號 : CYCheng230526 /密碼: Stars@5048)
+至 配置全局確認名稱和我們的電子郵件地址，您只需執行以下命令：
+git config --global user.name "CYCheng230526"
+git config --global user.email "atgis.2020@gmail.com"
+
+4.通過輸入底下命令，顯示目前的設定：
+git config --list
+
+
+5.使用SSH配置(添加SSH key)  (https://v420746k.pixnet.net/blog/post/323586478)
+
+
+
+(laptop_mini_py38) mds@mds-GF63-8RD:~$ ssh-keygen -t rsa -C "atgis.2020@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/mds/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/mds/.ssh/id_rsa
+Your public key has been saved in /home/mds/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:Zg69QiegevyO0YrY+vBonzu2XeeY7qLUGuXrabPHEew atgis.2020@gmail.com
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|                 |
+|    . .          |
+|   . . +         |
+|  .  .= S        |
+| o .+. E .       |
+|o +o.oo.+.       |
+|.O.B=+++=        |
+|*oOOX*B= .       |
++----[SHA256]-----+
+
+
+
+儲存SSH KEY的路徑 :  /home/mds/.ssh/id_rsa
+KEY的密碼:空白
+輸出的KEY :SHA256:Zg69QiegevyO0YrY+vBonzu2XeeY7qLUGuXrabPHEew atgis.2020@gmail.com
+
+6.接著要複製剛產生在第二個框路徑內的 id_rsa.pub 檔案
+或者用 gidet 打開 id_rsa.pub 檔案，直接下指令
+gedit /home/mds/.ssh/id_rsa.pub
+
+
+7.複製整個文檔內容，然後回到 github 上
+8.在 github 裡先登入自己的github後，點擊 Settings -> 再點擊 左邊欄位的 SSH and GPG keys ->點擊 New SSH key ->貼上剛剛複製的 id_rsa.pub，按下 Add SSK keys 後會要求輸入你的 github 密碼
+輸入完 github 的密碼後會再跳回剛剛的SSH keys畫面，會多一個如下的SSH key
+這個帳號就是一開始下的指令 $ ssh-keygen -t rsa -C "————————————@gmail.com" 的帳號
+
+9.接下來要回到電腦上驗證是否已經有正確的與github帳號綁定 直接輸入指令：
+ssh -T git@github.com
+
+輸入 yes
+
+即可顯示正確的與github帳號綁定了
+
+(laptop_mini_py38) mds@mds-GF63-8RD:~$ ssh -T git@github.com
+The authenticity of host 'github.com (20.27.177.113)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,20.27.177.113' (ECDSA) to the list of known hosts.
+Hi CYCheng230526! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+
+
+【已解决】Git下载私有仓库时报错Authentication failed (https://blog.csdn.net/leviopku/article/details/126727575)	
+Make sure to copy your personal access token now. You won’t be able to see it again! 
+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
+
+
+
+version_control https://github.com/CYCheng230526/version_control.git
+
+
+CYCheng230526
+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
+
+
+
